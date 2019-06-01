@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group(['prefix' => 'hotel'],function (){
+    Route::get('/',['as' => 'hotel.index', 'uses' => 'HotelController@index']);
+    Route::get('/create',['as' => 'hotel.create', 'uses' => 'HotelController@create']);
+    Route::post('/store',['as' => 'hotel.store', 'uses' => 'HotelController@store']);
+     Route::get('/reservation',['as' => 'hotel.reservation', 'uses' => 'ReservationController@index']);
+     Route::get('/rooms',['as' => 'rooms.index', 'uses' => 'RoomController@index']);
+     Route::get('/contact',['as' => 'contact.index', 'uses' => 'ContactController@index']);
+     Route::get('/login',['as' => 'login.index', 'uses' => 'LoginController@index']);
+     
+    });
