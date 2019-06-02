@@ -1,7 +1,7 @@
 <header class="site-header js-site-header">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Sogo Hotel</a></div>
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="{{route('hotel.index')}}">Sogo Hotel</a></div>
           <div class="col-6 col-lg-8">
 
 
@@ -41,7 +41,7 @@
           <div class="col-md-10 text-center" data-aos="fade">
             <h1 class="heading mb-3">Reservation Form</h1>
             <ul class="custom-breadcrumbs mb-4">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="{{route('hotel.index')}}">Home</a></li>
               <li>&bullet;</li>
               <li>Reservation</li>
             </ul>
@@ -108,7 +108,7 @@
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-3 align-self-end">
-                  <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
+                  <button class="btn btn-primary btn-block text-white">Check Availability</button>
                 </div>
               </div>
             </form>

@@ -1,4 +1,4 @@
-  @extends('base_layout2.master_layout')
+   @extends('base_layout2.master_layout')
    @section('body')
 
     <section class="site-hero overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">
@@ -31,7 +31,7 @@
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
             <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Reserve Now</a> 
+            <p><a href="{{route('hotel.reservation')}}" class="btn btn-primary text-white py-2 mr-3">Reserve Now</a>
           </div>
           
         </div>
