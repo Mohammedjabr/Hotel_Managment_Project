@@ -13,7 +13,12 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact');
+        return view('contact', ['ele1' => ' <h1 class="heading mb-3">Contact</h1>',
+                                'ele2' => ' <ul class="custom-breadcrumbs mb-4">
+                                            <li><a href="/hotel">Home</a></li>
+                                            <li>&bullet;</li>
+                                            <li>Contact</li>
+                                            </ul>']);
     }
 
     /**

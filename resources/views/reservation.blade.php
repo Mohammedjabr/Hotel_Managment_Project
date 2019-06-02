@@ -1,5 +1,6 @@
 @extends('base_layout2.master_layout')
 @section('body')
+<<<<<<< HEAD
 <section class="site-hero inner-page overlay" style="background-image: url(/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
@@ -23,6 +24,8 @@
     <!-- END section -->
 
 
+=======
+>>>>>>> 6d5855a55afb8aca9225b18f9dc9b71862f52314
 <section class="section contact-section" id="next">
       <div class="container">
         <div class="row">
