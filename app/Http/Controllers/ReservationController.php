@@ -13,8 +13,13 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return view('reservation');
-    }
+        return view('reservation', ['ele1' => ' <h1 class="heading mb-3">Reservation Form</h1>',
+                                    'ele2' => ' <ul class="custom-breadcrumbs mb-4">
+                                    <li><a href="/hotel">Home</a></li>
+                                    <li>&bullet;</li>
+                                    <li>RESERVATION</li>
+                                    </ul>']);
+           }
 
     /**
      * Show the form for creating a new resource.

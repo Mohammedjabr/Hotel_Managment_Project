@@ -10,7 +10,8 @@ class HotelController extends Controller
 {
     public function index(){
 
-        return view('index');
+        return view('index', ['ele1' => ' <span class="custom-caption text-uppercase text-white d-block  mb-3">Welcome To 5 <span class="fa fa-star text-primary"></span>   Hotel</span>',
+                             'ele2' =>' <h1 class="heading">A Best Place To Stay</h1>']);
     }
 
     public function create(){
