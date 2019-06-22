@@ -21,7 +21,6 @@ class CreateReservationTable extends Migration
             $table->integer('room_id');
             $table->integer('book_days');
             $table->date('book_date');
-            $table->boolean('want_services');
             $table->timestamps();
         });
     }

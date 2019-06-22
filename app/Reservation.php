@@ -10,7 +10,7 @@ class Reservation extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'customer_name', 'customer_phone_number', 'number_of_people', 'room_id',
-        'book_days', 'book_date', 'want_services'
+        'book_days', 'book_date'
     ];
     public $timestamps = ['created_at', 'updated_at'];
 

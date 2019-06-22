@@ -21,7 +21,6 @@ class CreateRoomTable extends Migration
             $table->enum('book_type', ['daily', 'monthly']);
             $table->boolean('is_booked');
             $table->text('image');
-            $table->text('services');
             $table->timestamps();
         });
     }

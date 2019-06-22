@@ -20,7 +20,7 @@ class CreateHotelTable extends Migration
             $table->integer('phone_number');
             $table->string('address');
             $table->integer('number_of_rooms');
-            $table->text('hotel_services');//for every serves true or false -should be in independent table
+            $table->text('hotel_services');
             $table->timestamps();
         });
     }
