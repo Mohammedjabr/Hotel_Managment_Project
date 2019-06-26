@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
                     <a href="#" class="room">
                         <figure class="img-wrap">
-                            <img src="{{url('images', $room->image)}}" alt="Free website template" class="img-fluid mb-3">
+                            <img src="{{asset($room->image)}}" alt="Free website template" class="img-fluid mb-3">
                         </figure>
                         <div class="p-3 text-uppercase text-center room-info">
                             <h2>{{$room->type}}</h2>
