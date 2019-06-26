@@ -70,6 +70,13 @@
                 <ul class="sub-menu">
                     <li class="nav-item start ">
                     <li class="nav-item">
+                        <a href=" {{route('room.create')}}" class=" nav-link ">
+                           <i class="fa fa-plus"></i>
+                            <span class="title">Insert Room</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href=" {{route('room.show')}}" class=" nav-link ">
                             <i class=" fa fa-list"></i>
                             <span class="title">show Room</span>
