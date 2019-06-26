@@ -16,12 +16,14 @@ class CreateEmployeeTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('password');
             $table->integer('phone_number');
             $table->date('DoB');
             $table->string('address');
             $table->integer('salary');
             $table->string('work_days');
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 

@@ -3,11 +3,8 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
-                        <a href="index.html">
-                            <img src="{{asset('control/assets/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
-                        <div class="menu-toggler sidebar-toggler">
-                            <span></span>
-                        </div>
+                           <h3> <span style="color:yellow">Sogo</span> <span style="color:red">Hotel</span></h3>
+                      
                     </div>
                     <!-- END LOGO -->
                     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -26,16 +23,9 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                      <li>
-                                        <a href="" class="text-center">
-                                            @lang('category.lang.english') 
-                                            <img alt="" src="/control/assets/global/img/flags/us.png">
-                                            </a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="text-center">
-                                             @lang('category.lang.arabic') 
-                                            <img  src="/control/assets/global/img/flags/eg.png" alt="">
-                                            
+                                        <a href="" class="btn red">
+                                            LogOut
+                                            <img alt="" src="/control/assets/global/img/flags/mn.png">
                                             </a>
                                     </li>
                                     <!-- <li>

@@ -1,5 +1,6 @@
 @extends('base_layout2.master_layout')
 @section('body')
+
 <section class="section contact-section" id="next">
       <div class="container">
         <div class="row">
