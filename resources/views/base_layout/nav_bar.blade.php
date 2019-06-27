@@ -79,7 +79,7 @@
                     <li class="nav-item">
                         <a href=" {{route('room.show')}}" class=" nav-link ">
                             <i class=" fa fa-list"></i>
-                            <span class="title">show Room</span>
+                            <span class="title">Show Room</span>
                         </a>
                     </li>
                 </ul>
@@ -93,15 +93,15 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start ">
-                        <a href="" class="nav-link ">
-                            <i class="fa fa-list"></i>
-                            <span class="title">Show Books</span>
+                        <a href=" {{route('employee.create')}}  " class="nav-link ">
+                            <i class="fa fa-plus"></i>
+                            <span class="title">Insert  Empolyee</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href=" " class="nav-link ">
-                            <i class="fa fa-plus"></i>
-                            <span class="title">Add Book</span>
+                        <a href=" {{route('employee.show')}} " class="nav-link ">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Show Employees</span>
                         </a>
                     </li>
                 </ul>

@@ -10,7 +10,7 @@ class Employee extends User
     protected $table = 'employees';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name', 'phone_number', 'DoB', 'address', 'salary', 'work_days'
+        'name','type','phone_number', 'DoB', 'address', 'salary', 'work_days'
     ];
     public $hidden = ['password' , 'remember_token'];
 

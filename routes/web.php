@@ -31,6 +31,16 @@ Route::group(['prefix' => 'control'], function () {
         Route::get('/edit/{id?}', ['as' => 'hotel.edit', 'uses' => 'HotelController@edit']);
         Route::put('/update', ['as' => 'hotel.update', 'uses' => 'HotelController@update']);
     });
+
+    Route::group(['prefix' => 'employee'], function () {
+        Route::get('/create', ['as' => 'employee.create', 'uses' => 'EmployeeController@create']);
+        Route::post('/store', ['as' => 'employee.store', 'uses' => 'EmployeeController@store']);
+        Route::get('/show', ['as' => 'employee.show', 'uses' => 'EmployeeController@show']);
+        Route::get('/edit/{id}', ['as' => 'employee.edit', 'uses' => 'EmployeeController@edit']);
+        Route::put('/update/{id}', ['as' => 'employee.update', 'uses' => 'EmployeeController@update']);
+        Route::delete('/delete/{id}', ['as' => 'employee.delete', 'uses' => 'EmployeeController@destroy']);
+    });
+
     Route::group(['prefix' => 'room'], function () {
         Route::get('/create', ['as' => 'room.create', 'uses' => 'RoomController@create']);
         Route::post('/store', ['as' => 'room.store', 'uses' => 'RoomController@store']);
