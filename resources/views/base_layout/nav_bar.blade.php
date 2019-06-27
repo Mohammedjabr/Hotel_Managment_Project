@@ -70,6 +70,7 @@
                 <ul class="sub-menu">
                     <li class="nav-item start ">
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a href="{{route('room.create')}}" class="nav-link ">
                             <i class="fa fa-plus"></i>
                             <span class="title">Add Room</span>
@@ -85,6 +86,18 @@
                         <a href=" {{route('room.delete')}}" class=" nav-link ">
                             <i class=" fa fa-list"></i>
                             <span class="title">Delete Room</span>
+=======
+                        <a href=" {{route('room.create')}}" class=" nav-link ">
+                           <i class="fa fa-plus"></i>
+                            <span class="title">Insert Room</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href=" {{route('room.show')}}" class=" nav-link ">
+                            <i class=" fa fa-list"></i>
+                            <span class="title">show Room</span>
+>>>>>>> 47d84e8abedba70af7d5d2c1438edc573aff5cf3
                         </a>
                     </li>
                 </ul>

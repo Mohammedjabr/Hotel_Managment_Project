@@ -31,28 +31,12 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="home-slider major-caousel owl-carousel mb-5 " data-aos="fade-up" data-aos-delay="200">
+            @foreach($rooms as $key => $room)
               <div class="slider-item">
-                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <img src="{{asset($room->image)}}" alt="Image placeholder" class="img-fluid">
               </div>
-              <div class="slider-item">
-                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
+              @endforeach
             </div>
             <!-- END slider -->
           </div>
@@ -65,3 +49,5 @@
   </body>
 </html>
 @stop
+
+

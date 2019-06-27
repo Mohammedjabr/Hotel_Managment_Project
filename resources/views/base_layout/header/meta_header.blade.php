@@ -1,10 +1,11 @@
 <meta charset="utf-8" />
-        <title>Metronic Admin Theme #1 | Bootstrap Form Controls</title>
+        <title>Sogo Hotel-control</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #1 for bootstrap inputs, input groups, custom checkboxes and radio controls and more" name="description" />
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{asset('control/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('control/assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -55,6 +56,9 @@
     <style>
         .fa-search, .fa-plus, .fa-book, .fa-edit, .fa-list {
             margin-right: 5px;
+        }
+        span.error{
+            color:red;
         }
     </style>
 @endif
