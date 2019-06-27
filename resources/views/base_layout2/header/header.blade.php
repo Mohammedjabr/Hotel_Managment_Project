@@ -30,10 +30,16 @@
             </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
 </header>
 <!-- END head -->
 =======
+=======
+    </div>
+</header>
+<!-- END head -->
+>>>>>>> 47d84e8abedba70af7d5d2c1438edc573aff5cf3
       </div>
     </header>
     <!-- END head -->
@@ -55,4 +61,7 @@
       </a>
     </section>
     <!-- END section -->
+<<<<<<< HEAD
 >>>>>>> 6d5855a55afb8aca9225b18f9dc9b71862f52314
+=======
+>>>>>>> 47d84e8abedba70af7d5d2c1438edc573aff5cf3
