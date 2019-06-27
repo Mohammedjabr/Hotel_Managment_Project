@@ -9,33 +9,33 @@
             @csrf
             <div class="form-group">
                 <label>Hotel name:</label>
-                <input type="text" class="form-control" name="hotel_name" value="{{old('hotel_name')}}"require>
+                <input type="text" class="form-control" name="hotel_name" value="{{old('hotel_name')}}" require>
             </div>
             <div class="form-group">
                 <label>Hotel phone number:</label>
-                <input type="text" class="form-control" name="hotel_phone_number" value="{{old('hotel_phone_number')}}"require>
+                <input type="text" class="form-control" name="hotel_phone_number" value="{{old('hotel_phone_number')}}" require>
             </div>
             <div class="form-group">
                 <label>Hotel Address:</label>
-                <input type="text" class="form-control" name="hotel_address" value="{{old('hotel_address')}}"require>
+                <input type="text" class="form-control" name="hotel_address" value="{{old('hotel_address')}}" require>
             </div>
             <div class="form-group">
                 <label>Room number:</label>
-                <input type="text" class="form-control" name="number_of_rooms" value="{{old('number_of_rooms')}}"require>
+                <input type="text" class="form-control" name="number_of_rooms" value="{{old('number_of_rooms')}}" require>
             </div>
-            <div class="form-group " >
+            <div class="form-group ">
                 <label>Stars number:</label>
-                <select class="form-control" name="hotel_stars" >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select class="form-control" name="hotel_stars">
+                    <option {{ old('hotel_stars') == 1 ? 'selected' : '' }}>1</option>
+                    <option {{ old('hotel_stars') == 2 ? 'selected' : '' }}>2</option>
+                    <option {{ old('hotel_stars') == 3 ? 'selected' : '' }}>3</option>
+                    <option {{ old('hotel_stars') == 4 ? 'selected' : '' }}> 4</option>
+                    <option {{ old('hotel_stars') == 5 ? 'selected' : '' }}> 5</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Services :</label>
-                <input type="text" class="form-control" name="hotel_services" value="{{old('hotel_name')}}"require>
+                <input type="text" class="form-control" name="hotel_services" value="{{old('hotel_name')}}" require>
             </div>
             <div class="form-group">
                 <input class="btn btn-primary" type="submit" name="submit">

@@ -29,11 +29,9 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     </div>
 </header>
 <!-- END head -->
-=======
       </div>
     </header>
     <!-- END head -->
@@ -55,4 +53,3 @@
       </a>
     </section>
     <!-- END section -->
->>>>>>> 6d5855a55afb8aca9225b18f9dc9b71862f52314

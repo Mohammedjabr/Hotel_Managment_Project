@@ -8,14 +8,11 @@ class Reservation extends Model
 {
     protected $table = 'reservations';
     protected $primaryKey = 'id';
-    protected $fillable = [
-        'customer_name', 'customer_phone_number', 'number_of_people', 'room_id',
-        'book_days', 'book_date'
-    ];
+    protected $fillable = ['customer_name', 'customer_phone_number', 'number_of_people', 'room_id', 'date_check_in', 'date_check_out'];
     public $timestamps = ['created_at', 'updated_at'];
 
-    public function hotel()
+    public function room()
     {
-        return $this->belongsto('App\Hotel', 'hotel_id', 'id');
+        return $this->belongsto('App\Room', 'room_id', 'id');
     }
 }

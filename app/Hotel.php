@@ -8,9 +8,7 @@ class Hotel extends Model
 {
     protected $table = 'hotels';
     protected $primaryKey = 'id';
-    protected $fillable = [
-        'name', 'hotel_stars', 'phone_number', 'address', 'number_of_rooms', 'hotel_services'
-    ];
+    protected $fillable = ['name', 'hotel_stars', 'phone_number', 'address', 'number_of_rooms', 'hotel_services'];
     public $timestamps = ['created_at', 'updated_at'];
 
     public function room()

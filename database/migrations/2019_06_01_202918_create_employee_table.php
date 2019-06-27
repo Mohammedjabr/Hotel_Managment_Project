@@ -21,6 +21,7 @@ class CreateEmployeeTable extends Migration
             $table->string('address');
             $table->integer('salary');
             $table->string('work_days');
+            $table->softDeletes();	
             $table->timestamps();
         });
     }
