@@ -21,6 +21,17 @@ Route::group(['prefix' => 'hotel'], function () {
     Route::get('/login/sucesslogin', ['as' => 'login.success', 'uses' => 'LoginController@successlogin']);
     Route::get('/logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
 });
+
+    Route::group(['prefix' => 'employee'], function () {
+        Route::get('/create', ['as' => 'employee.create', 'uses' => 'EmployeeController@create']);
+        Route::post('/store', ['as' => 'employee.store', 'uses' => 'EmployeeController@store']);
+        Route::get('/show', ['as' => 'employee.show', 'uses' => 'EmployeeController@show']);
+        Route::get('/edit/{id}', ['as' => 'employee.edit', 'uses' => 'EmployeeController@edit']);
+        Route::put('/update/{id}', ['as' => 'employee.update', 'uses' => 'EmployeeController@update']);
+        Route::delete('/delete/{id}', ['as' => 'employee.delete', 'uses' => 'EmployeeController@destroy']);
+    });
+
+    
 Route::group(['prefix' => 'room'], function () {
     Route::get('/', ['as' => 'room.index', 'uses' => 'RoomController@index']);
     Route::get('create', ['as' => 'room.create', 'uses' => 'RoomController@create']);

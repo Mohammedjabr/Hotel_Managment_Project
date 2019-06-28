@@ -17,6 +17,7 @@ class CreateEmployeeTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('password');
+            $table->enum('type', ['admin', 'employee']);
             $table->integer('phone_number');
             $table->date('DoB');
             $table->string('address');
