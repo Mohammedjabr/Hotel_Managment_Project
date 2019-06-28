@@ -12,8 +12,8 @@ class Employee extends User
     protected $fillable = [
         'name','type','phone_number', 'DoB', 'address', 'salary', 'work_days'
     ];
-    public $hidden = ['password' , 'remember_token'];
 
+    public $hidden = ['password' , 'remember_token'];
     public function hotel()
     {
         return $this->belongsto('App/Hotel', 'hotel_id', 'id');

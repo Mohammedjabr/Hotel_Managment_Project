@@ -35,7 +35,8 @@
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
-                <div class="page-content"
+                <div class="page-content">
+
                     @if(session('success'))
                     <div class="alert alert-success">
                         {{session('success')}}

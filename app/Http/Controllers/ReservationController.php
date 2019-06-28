@@ -3,87 +3,95 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Reservation;
+use App\Room;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('reservation', ['ele1' => ' <h1 class="heading mb-3">Reservation Form</h1>',
-                                    'ele2' => ' <ul class="custom-breadcrumbs mb-4">
+        return view('reservation', [
+            'ele1' => ' <h1 class="heading mb-3">Reservation Form</h1>',
+            'ele2' => ' <ul class="custom-breadcrumbs mb-4">
                                     <li><a href="/hotel">Home</a></li>
                                     <li>&bullet;</li>
                                     <li>RESERVATION</li>
-                                    </ul>']);
-           }
+                                    </ul>'
+        ]);
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('');
+        $today = Carbon::today()->toDateString();
+        dd($today);
+        return view('reservation.create', compact('today'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Reservation::create('reservations', request()->validate($this->rules()){
+            [
+                'name' => $request->name,
+                'phone_number' => $request->phone_number,
+                'email' => $request->email,
+                'date_check_in' => $request->date_check_in,
+                'date_check_out' => $request->date_check_out,
+                'adults' => $request->adults_number,
+                'adults' => $request->children_number,
+                'notes' => $request->notes
+            ]});
+        return redirect('reservation')->with('success', 'reservation has been created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        request()->validate($this->rules());
+        // $rooms = Room::where('is_booked', '=', '0');
+        $rooms = DB::table('rooms')->where('is_booked','=','0');
+        return view(
+            'reservation.show',compact('rooms'),
+            [
+                'ele1' => '',
+                'ele2' => ''
+            ]
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
+    }
+
+    public function rules()
+    {
+        $yesterday = Carbon::yesterday()->toDateString();
+        return [
+            'name' => ['required', 'min:3'],
+            'phone_number' => ['required', 'min:3', 'integer'],
+            'email' => ['required', 'min:10', 'string'],
+            'date_check_in' => ['required', 'after:$yesterday', 'before:date_check_out'],
+            'date_check_out' => ['required', 'after:date_check_in'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'date_check_in' => 'after:The date check in must be a date after yesterday'
+        ];
     }
 }

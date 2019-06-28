@@ -1,35 +1,13 @@
 @extends('base_layout2.master_layout')
 @section('body')
-<<<<<<< HEAD
-<section class="site-hero inner-page overlay" style="background-image: url(/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row site-hero-inner justify-content-center align-items-center">
-          <div class="col-md-10 text-center" data-aos="fade">
-            <h1 class="heading mb-3">Contact</h1>
-            <ul class="custom-breadcrumbs mb-4">
-              <li><a href="{{route('hotel.index')}}">Home</a></li>
-              <li>&bullet;</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      <a class="mouse smoothscroll" href="#next">
-        <div class="mouse-icon">
-          <span class="mouse-wheel"></span>
-        </div>
-      </a>
-    </section>
     <!-- END section -->
 
-=======
->>>>>>> 6d5855a55afb8aca9225b18f9dc9b71862f52314
     <section class="section contact-section" id="next">
       <div class="container">
         <div class="row">
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-            
+
             <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">
               <div class="row">
                 <div class="col-md-6 form-group">
@@ -41,7 +19,7 @@
                   <input type="text" id="phone" class="form-control ">
                 </div>
               </div>
-          
+
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="email">Email</label>

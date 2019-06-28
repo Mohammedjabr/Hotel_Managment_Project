@@ -6,30 +6,24 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateReservationTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('customer_name');
-            $table->integer('customer_phone_number');
-            $table->integer('number_of_people');
+            $table->string('name');
+            $table->integer('phone_number')->unique();
+            $table->string('email')->unique();
+            $table->integer('adults');
+            $table->integer('children');
+            $table->date('date_check_in');
+            $table->date('date_check_out');
             $table->integer('room_id');
-            $table->integer('book_days');
-            $table->date('book_date');
+            $table->softDeletes();	
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('reservation');

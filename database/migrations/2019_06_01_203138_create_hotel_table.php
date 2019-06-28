@@ -21,6 +21,7 @@ class CreateHotelTable extends Migration
             $table->string('address');
             $table->integer('number_of_rooms');
             $table->text('hotel_services');
+            $table->softDeletes();	
             $table->timestamps();
         });
     }

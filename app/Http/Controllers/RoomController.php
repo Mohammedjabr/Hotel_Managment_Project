@@ -6,155 +6,143 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Validator;
 use App\Room;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+
 
 class RoomController extends Controller
 {
-    public function index()
-    {
-        $rooms = Room::all();
-        return view('rooms',['ele1' => '  <h1 class="heading mb-3">Rooms</h1>',
-        'ele2' =>' <ul class="custom-breadcrumbs mb-4">
-             <ul class="custom-breadcrumbs mb-4">
-               <li><a href="index.html">Home</a></li>
-               <li>&bullet;</li>
-               <li>Rooms</li>
-              </ul>'],compact('rooms'));
-          }
-
-      public function show(){
-        $rooms = Room::paginate(5);
-        return view('Room.index', compact('rooms'));
-      }    
-    
-    public function create()
-    {
-        return view('room.create');
+  public function index(Request $request)
+  {
+    $rooms = Room::where([]);
+    if ($request->has('name') != null) {
+      $rooms = $rooms->orWhere('room_name', '=', $request->name);
     }
-   
-    //error in store
-    public function store(Request $request)
-    {
-      //Upload Image  
-      if(request()->hasFile('image')){
-        request()->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images/rooms'), $imageName);
-        $imagepath = 'images/rooms'.$imageName;  
+    $rooms = $rooms->paginate(5);
+    foreach ($rooms as $room) {
+      $room->note = Str::words($room->note, 2);
+    }
+    return view('room.index', compact('rooms'));
+  }
+
+  public function show()
+  {
+    $rooms = Room::paginate(5);
+
+    return view('Room.index', compact('rooms'));
+  }
+
+  public function create()
+  {
+    return view('room.create');
+  }
+
+  //error in store
+  public function store(Request $request)
+  {
+    request()->validate([
+      'room_name' => ['required', 'unique:rooms,room_name'],
+      'type' => ['required'],
+      'price' => ['required', 'integer', 'between:20,250'],
+      'book_type' => ['required'],
+      'note' => ['required'],
+      'image' => ['required']
+    ]);
+    //Upload Image
+    $uploadedImage = $request->file('image');
+    $imageName = time() . '.' . $uploadedImage->getClientOriginalExtension();
+    $direction = public_path('images/rooms');
+    $uploadedImage->move($direction, $imageName);
+    $imagepath = 'images/rooms/' . $imageName;
+
+    $room = Room::create([
+      'room_name' => $request->room_name,
+      'type' => $request->type,
+      'price' => $request->price,
+      'book_type' => $request->book_type,
+      'note' => $request->note,
+      'image' => $imagepath,
+    ]);
+    $room_name = $request->room_name;
+    return redirect('/room/create')->with('success', 'room ' . $room_name . ' has been created successfully');
+  }
+
+  public function edit($id)
+  {
+    try {
+      $room = Room::findOrFail($id);
+      return view('room.edit', compact('room'));
+    } catch (ModelNotFoundException $exception) {
+      return redirect()->route('room.edit')->with('error', 'Room not found');
+    }
+  }
+  //error in update
+  public function update(Request $request, $id)
+  {
+    try {
+      $room = Room::findOrFail($id);
+      $oldName = $request->room_name;
+      $request->validate($this->rules($id), $this->messages());
+      if ($request->hasFile('image')) {
+        $imagePath = parent::uploadImage($request->file('image'));
+        if (File::exists(public_path($room->image))) {
+          File::delete(public_path($room->image));
+        }
+        $room->image = $imagePath;
       }
-    
-      $request->validate($this->rules() ,$this->messages());
-       $room = new Room();
-       $room->room_number = $request->input('room_number');
-       $room->type = $request->input('type');
-       $room->price = $request->input('price');
-       $room->book_type = $request->input('book_type');
-       $room->services = $request->input('services');
-       $room->image = $imagepath;
-       if ($request ===TRUE) {
-           
-       }
-       $room->save();
-}
-     
-    //   $room = new Room();
-    //   $room->room_number = $request->input('room_number');
-    //   $room->type = $request->input('type');
-    //   $room->price = $request->input('price');
-    //   $room->book_type = $request->input('book_type');
-    //   $room->services = $request->input('services');
-    //   $room->image = $request->input('image');
-    //   $room->save();
-      
-      //save in database
-
-
-
-    
-    
-    public function edit($room_number)
-    {
-      $room =Room::find($room_number);
-      return view('room.edit',compact('room','room_number'));
-     
-      
-
-       
-        // return view('room.edit');
-        // $room=Room::findOrFail($id); 
-        // try{
-        //     return view('room.edit',compact('room'));
-        // }catch(ModelNotFoundException $exciption){
-        //     return redirect()->route('room.index')->with('error','Room Not Found');
-         
-        // } 
-        
-        
+      $room->room_name = $request->room_name;
+      $room->type = $request->type;
+      $room->price = $request->price;
+      $room->book_type = $request->book_type;
+      $room->note = $request->note;
+      $room->update();
+      return redirect()->route('room.index')->with('success', 'Room' . $oldName . ' has been updated successfully');
+    } catch (ModelNotFoundException $exception) {
+      return redirect()->route('room.update')->with('error', 'Room not found');
     }
-   //error in update
-    public function update(Request $request,$room_number)
-    {
-      $request->validate($this->rules() ,$this->messages());
-      $room =Room::find($room_number);
-      $room->room_number =$request->get('room_number');
-      $room->type =$request->get('type');
-      $room->price =$request->get('price');
-      $room->book_type =$request->get('book_type');
-      $room->services =$request->get('services');
-      $room->image ="123456";  //error put image
-      $room->save();
-      return redirect()->route('room.index')->with('sucess','Data Updated');
+  }
 
-      // $request->validate($this->rules() ,$this->messages());
-      // $room = Room::find($room_number);
-      // $room->room_number = $request->get('room_number');
-      // $room->type = $request->get('type');
-      // $room->price = $request->get('price');
-      // $room->book_type = $request->get('book_type');
-      // $room->services = $request->get('services');
-      // $room->image = $request->get('fsfsfsf');
-      // $room->save();
-
-      // return redirect('/room')->with('success', 'Room has been updated');
-
-    }
-     
-    public function destroy($room_number){
-      $room =Room::find($room_number);
+  public function destroy($room_number)
+  {
+    try {
+      $room = Room::findOrFail($room_number);
       $room->delete();
-      return redirect()->route('room.show')->with('sucess','Data Deleted');
+      return redirect()->route('room.index')->with('success', 'Room has been deleted successfully');
+    } catch (ModelNotFoundException $exception) {
+      return redirect()->route('room.index')->with('error', 'Room not found');
     }
+  }
 
 
-    private function rules(){
-        return [
-            'room_number' => 'required|max:5|unique:rooms,room_number',
-            'type' => 'required',
-            'price' =>'required',
-            'book_type' =>'required',
-            'is_booked' =>'required',
-            'services' =>'required',
-            
-        ];
 
+  private function rules($id = null)
+  {
+    $rules = [
+
+      'type' => ['required'],
+      'price' => ['required', 'integer', 'between:20,250'],
+      'book_type' => ['required'],
+      'is_booked' => ['required'],
+      'note' => ['required'],
+    ];
+    if ($id) {
+      $rules['room_name'] = ['required', 'unique:rooms,room_name,' . $id];
+    } else {
+      $rules['room_name'] = ['required', 'unique:rooms,room_name,'];
+      $rules['image'] = ['required', 'image,'];
     }
+    return $rules;
+  }
 
-    private function messages(){
-        return [
-            'name.required' => 'Name is required',
-            'name.max' => 'Room Number smaller than 5',
-            'name.unique' => 'Name is already token!!',
-            'type.required' => 'Type is required',
-            'price.required' => 'Price is required',
-            'book_type.required' => 'book_type is required',
-            'services.required' => 'Services is required',
-            
-            
-        ];
-    }
-
-
-    
-
+  private function messages()
+  {
+    return [
+      'room_name.required' => 'Name is required',
+      'room_name.unique' => 'Name is already token!!',
+      'type.required' => 'Type is required',
+      'price.required' => 'Price is required',
+      'book_type.required' => 'book_type is required',
+    ];
+  }
 }

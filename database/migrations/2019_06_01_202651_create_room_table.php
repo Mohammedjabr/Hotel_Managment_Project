@@ -6,29 +6,23 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateRoomTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->integer('room_number')->primary();
-            $table->enum('type', ['single', 'double', 'king', 'twin', 'cabana', 'superior', 'junior_suite']);//open website to show what there like booking.com
+            $table->bigIncrements('id');
+            $table->text('room_name');
+            $table->enum('type', ['single', 'double', 'king', 'twin']);
             $table->integer('price');
             $table->enum('book_type', ['daily', 'monthly']);
-            $table->string('services');
-            $table->string('image')->nullable();;
+            $table->boolean('is_booked')->default(false);//0 not booked 1 booked
+            $table->text('note');
+            $table->text('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('room');
