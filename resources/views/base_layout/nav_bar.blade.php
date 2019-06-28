@@ -42,62 +42,21 @@
             <li class="nav-item start ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-book"></i>
-                    <span class="title">Hotel</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item start ">
-                    <li class="nav-item">
-                        <a href="{{route('hotel.create')}}" class="nav-link ">
-                            <i class="fa fa-plus"></i>
-                            <span class="title">Hotel info</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href=" {{route('hotel.edit')}}" class=" nav-link ">
-                            <i class=" fa fa-list"></i>
-                            <span class="title">Edit hotel</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item start ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fa fa-book"></i>
                     <span class="title">Room</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start ">
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a href="{{route('room.create')}}" class="nav-link ">
                             <i class="fa fa-plus"></i>
                             <span class="title">Add Room</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href=" {{route('room.edit')}}" class=" nav-link ">
+                        <a href=" {{route('room.index')}}" class=" nav-link ">
                             <i class=" fa fa-list"></i>
-                            <span class="title">Edit Room</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href=" {{route('room.delete')}}" class=" nav-link ">
-                            <i class=" fa fa-list"></i>
-                            <span class="title">Delete Room</span>
-=======
-                        <a href=" {{route('room.create')}}" class=" nav-link ">
-                           <i class="fa fa-plus"></i>
-                            <span class="title">Insert Room</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href=" {{route('room.show')}}" class=" nav-link ">
-                            <i class=" fa fa-list"></i>
-                            <span class="title">show Room</span>
->>>>>>> 47d84e8abedba70af7d5d2c1438edc573aff5cf3
+                            <span class="title">Show Rooms</span>
                         </a>
                     </li>
                 </ul>

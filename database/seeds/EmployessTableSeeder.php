@@ -17,7 +17,7 @@ class EmployessTableSeeder extends Seeder
             'phone_number' => '0597453839',
             'DoB' =>'1998-01-01',
             'address' => 'Alburij',
-            'salary' => 500,
+            'salary' => 5000,
             'work_days' => 'sat,sunday,monday',
             'remember_token' => str_random(10),
         ]);
