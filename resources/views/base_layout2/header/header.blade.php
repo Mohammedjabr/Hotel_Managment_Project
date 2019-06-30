@@ -17,10 +17,9 @@
                 <div class="col-md-6 mx-auto">
                   <ul class="list-unstyled menu">
                     <li class="active"><a href="{{route('hotel.index')}}">Home</a></li>
-                    <li><a href="{{route('hotel.rooms')}}">Rooms</a></li>
+                    <li><a href="{{route('hotel.room')}}">Rooms</a></li>
                     <li><a href="{{route('hotel.reservation')}}">Reservation</a></li>
                     <li><a href="{{route('hotel.contact')}}">Contact</a></li>
-                    <li><a href="{{route('login.index')}}">Login</a></li>
                   </ul>
                 </div>
               </div>
@@ -54,20 +53,3 @@
     </div>
   </a>
 </section>
-<!-- <section class="site-hero overlay" style="background-image: url(/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row site-hero-inner justify-content-center align-items-center">
-          <div class="col-md-10 text-center" data-aos="fade-up">
-           {!! $ele1 !!}
-           {!! $ele2 !!}
-          </div>
-        </div>
-      </div>
-
-      <a class="mouse smoothscroll" href="#next">
-        <div class="mouse-icon">
-          <span class="mouse-wheel"></span>
-        </div>
-      </a>
-    </section> -->
-<!-- END section -->

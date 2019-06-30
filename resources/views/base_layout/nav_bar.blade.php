@@ -92,17 +92,17 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start ">
-                        <a href="" class="nav-link ">
+                        <a href="{{route('reservation.index')}}" class="nav-link ">
                             <i class="fa fa-list"></i>
-                            <span class="title">Show Libraries</span>
+                            <span class="title">Show Reservations</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href=" " class="nav-link ">
                             <i class="fa fa-plus"></i>
-                            <span class="title">Add Libraries</span>
+                            <span class="title"></span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
         </ul>

@@ -3,8 +3,14 @@
 <section class="section contact-section" id="next">
   <div class="container">
     <div class="row">
+      @if(session()->has('success'))
+      <div class="alert alert-success">
+        {{session()->pull('success')}}
+      </div>
+      @endif
+
       <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
-        <form action="{{route('reservation.show')}}" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+        <form action="{{route('reservation.store')}}" method="post" class="bg-white p-md-5 p-4 mb-5 border">
           @csrf
           @method('POST')
           <div class="row">
@@ -26,18 +32,22 @@
           <div class="row">
             <div class="col-md-6 form-group">
               <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
-              <input type="text" id="checkin_date" autocomplete="off" class="form-control" name="date_check_in" value="{{old('date_check_in')}}">
+              <input type="date" autocomplete="off" class="form-control" name="date_check_in" value="{{old('date_check_in')}}">
             </div>
             <div class="col-md-6 form-group">
               <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
-              <input type="text" id="checkout_date" autocomplete="off" class="form-control" name="date_check_out" value="{{old('date_check_out')}}">
+              <input type="date" autocomplete="off" class="form-control" name="date_check_out" value="{{old('date_check_out')}}">
             </div>
           </div>
           <div class="row">
 
             <div class="col-md-6 form-group">
-              <label for="adults" class="font-weight-bold text-black">Number of persons</label>
-              <input type="text" class="form-control" placeholder="from 1 - 5" name="number_of_person" validate value="{{old('number_of_person')}}">
+              <label for="adults" class="font-weight-bold text-black">Adults</label>
+              <input type="text" class="form-control" placeholder="from 1 - 5" name="adults" validate value="{{old('adults')}}">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="adults" class="font-weight-bold text-black">Children</label>
+              <input type="text" class="form-control" placeholder="from 1 - 5" name="children" validate value="{{old('children')}}">
             </div>
             <div class="col-md-6 form-group">
               <label for="adults" class="font-weight-bold text-black">Room type</label>

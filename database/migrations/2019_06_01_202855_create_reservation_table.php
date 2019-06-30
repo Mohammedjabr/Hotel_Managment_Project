@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateReservationTable extends Migration
 {
-    
+
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
@@ -18,8 +18,8 @@ class CreateReservationTable extends Migration
             $table->integer('children');
             $table->date('date_check_in');
             $table->date('date_check_out');
-            $table->integer('room_id');
-            $table->softDeletes();	
+            $table->enum('type', ['single', 'double', 'twin', 'king']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
