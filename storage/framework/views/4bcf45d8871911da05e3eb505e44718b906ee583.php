@@ -42,44 +42,21 @@
             <li class="nav-item start ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-book"></i>
-                    <span class="title">Hotel</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item start ">
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('hotel.create')); ?>" class="nav-link ">
-                            <i class="fa fa-plus"></i>
-                            <span class="title">Hotel info</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href=" <?php echo e(route('hotel.edit')); ?>" class=" nav-link ">
-                            <i class=" fa fa-list"></i>
-                            <span class="title">Edit hotel</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item start ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fa fa-book"></i>
                     <span class="title">Room</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start ">
                     <li class="nav-item">
-                        <a href=" <?php echo e(route('room.create')); ?>" class=" nav-link ">
-                           <i class="fa fa-plus"></i>
-                            <span class="title">Insert Room</span>
+                        <a href="<?php echo e(route('room.create')); ?>" class="nav-link ">
+                            <i class="fa fa-plus"></i>
+                            <span class="title">Add Room</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
-                        <a href=" <?php echo e(route('room.show')); ?>" class=" nav-link ">
+                        <a href=" <?php echo e(route('room.index')); ?>" class=" nav-link ">
                             <i class=" fa fa-list"></i>
-                            <span class="title">Show Room</span>
+                            <span class="title">Show Rooms</span>
                         </a>
                     </li>
                 </ul>
@@ -115,17 +92,17 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item start ">
-                        <a href="" class="nav-link ">
+                        <a href="<?php echo e(route('reservation.index')); ?>" class="nav-link ">
                             <i class="fa fa-list"></i>
-                            <span class="title">Show Libraries</span>
+                            <span class="title">Show Reservations</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href=" " class="nav-link ">
                             <i class="fa fa-plus"></i>
-                            <span class="title">Add Libraries</span>
+                            <span class="title"></span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
         </ul>

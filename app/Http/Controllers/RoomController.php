@@ -91,7 +91,7 @@ class RoomController extends Controller
         }
         $room->image = $imagePath;
       }
-      $room->room_name = $request->room_name;
+      $room->room_name = $request->name;
       $room->type = $request->type;
       $room->price = $request->price;
       $room->book_type = $request->book_type;
@@ -119,7 +119,6 @@ class RoomController extends Controller
   private function rules($id = null)
   {
     $rules = [
-
       'type' => ['required'],
       'price' => ['required', 'integer', 'between:20,250'],
       'book_type' => ['required'],
@@ -127,9 +126,9 @@ class RoomController extends Controller
       'note' => ['required'],
     ];
     if ($id) {
-      $rules['room_name'] = ['required', 'unique:rooms,room_name,' . $id];
+      $rules['name'] = ['required', 'unique:rooms,room_name,' . $id];
     } else {
-      $rules['room_name'] = ['required', 'unique:rooms,room_name,'];
+      $rules['name'] = ['required', 'unique:rooms,room_name,'];
       $rules['image'] = ['required', 'image,'];
     }
     return $rules;

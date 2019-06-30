@@ -17,7 +17,7 @@
 
                     <div class="form-body">
                         <div class="form-group form-md-line-input">
-                            <input type="text" class="form-control" id="form_control_1" value="{{$room->name}}" name="name">
+                            <input type="text" class="form-control" id="form_control_1" value="{{$room->room_name}}" name="name">
                             <label for="form_control_1">Room name </label>
                             <span class="error">{{ $errors->first('name') }}</span>
                         </div>

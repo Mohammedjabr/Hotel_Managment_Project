@@ -63,7 +63,9 @@
               <td>{{$room->price}}$</td>
               <td>{{$room->book_type}}</td>
               <td>{{$room->note}}</td>
-              <td><button class="btn btn-success"><a href="{{route('room.edit',['id'=>$room->id])}}">Edit</a></button> </td>
+              <td>
+                <a href="{{route('room.edit',['id'=>$room->id])}}">
+                  <button class="btn btn-success">Edit</button> </a></td>
               <td>
                 <a type="submit" class="btn btn-danger remove-room" data-value="{{($room->id)}}" data-name="{{$room->room_name}}">Delete</a>
               </td>

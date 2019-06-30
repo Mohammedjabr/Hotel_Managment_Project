@@ -17,12 +17,10 @@
                   <tr>
                     <th>Name</th>
                     <th>password</th>
-                    <th>type</th>
                     <th>Phone Number</th>
                     <th>Date Of Birth</th>
                     <th>Address</th>
                     <th>Salary</th>
-                    <th>Works Days</th>
                     <th>Edit</th>
                     <th>Delete</th>
                     
@@ -33,12 +31,11 @@
                   <tr>
                    <td>{{$employee->name}}</td>
                    <td>{{$employee->password}}</td>
-                   <td>{{$employee->type}}</td>
                    <td>{{$employee->phone_number}}</td>
                    <td>{{$employee->DoB}}</td>
                    <td>{{$employee->address}}</td>
                    <td>{{$employee->salary}}</td>
-                   <td>{{$employee->work_days}}</td>
+                   <!-- <td>{{$employee->work_days}}</td> -->
 
                    <td>
                    <a href="{{ action('EmployeeController@edit',$employee['id'])}}"><button class="btn btn-success">Edit</button></a> </td>

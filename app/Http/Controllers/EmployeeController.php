@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class EmployeeController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-       //
+        //
     }
 
     /**
@@ -35,18 +36,16 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-      $request->validate($this->rules() ,$this->messages());
-       $employee = new Employee();
-       $employee->name = $request->input('name');
-       $employee->password = $request->input('password');
-       $employee->type = $request->input('type');
-       $employee->phone_number = $request->input('phone_number');
-       $employee->address = $request->input('address');
-       $employee->DoB = $request->input('DoB');
-       $employee->salary = $request->input('salary');
-       $employee->work_days = $request->input('work_days');
-       $employee->save();
-       return redirect()->route('employee.create')->with('sucess','Sucess Created!');
+        $request->validate($this->rules(), $this->messages());
+        $employee = new Employee();
+        $employee->name = $request->input('name');
+        $employee->password = $request->input('password');
+        $employee->phone_number = $request->input('phone_number');
+        $employee->address = $request->input('address');
+        $employee->DoB = $request->input('DoB');
+        $employee->salary = $request->input('salary');
+        $employee->save();
+        return redirect()->route('employee.create')->with('success', 'Success Created!');
     }
 
     /**
@@ -69,15 +68,13 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        
-        try{
-            $employee =Employee::findOrFail($id);
-            return view('employee.edit',compact('employee','id'));
-        }catch(ModelNotFoundException $exception){
-            return redirect()->route('employee.create')->with('error','Employee Not Found !!');
+
+        try {
+            $employee = Employee::findOrFail($id);
+            return view('employee.edit', compact('employee', 'id'));
+        } catch (ModelNotFoundException $exception) {
+            return redirect()->route('employee.create')->with('error', 'Employee Not Found !!');
         }
-       
-        
     }
 
     /**
@@ -89,18 +86,16 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $request->validate($this->rules() ,$this->messages());
-      $employee =Employee::find($id);
-       $employee->name = $request->input('name');
-       $employee->password = $request->input('password');
-       $employee->type = $request->input('type');
-       $employee->phone_number = $request->input('phone_number');
-       $employee->address = $request->input('address');
-       $employee->DoB = $request->input('DoB');
-       $employee->salary = $request->input('salary');
-       $employee->work_days = $request->input('work_days');
-       $employee->save();
-      return redirect()->route('employee.show')->with('sucess','Data Updated');
+        $request->validate($this->rules(), $this->messages());
+        $employee = Employee::find($id);
+        $employee->name = $request->input('name');
+        $employee->password = $request->input('password');
+        $employee->phone_number = $request->input('phone_number');
+        $employee->address = $request->input('address');
+        $employee->DoB = $request->input('DoB');
+        $employee->salary = $request->input('salary');
+        $employee->save();
+        return redirect()->route('employee.show')->with('success', 'Data Updated');
     }
 
     /**
@@ -111,31 +106,32 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        $empolyee =Employee::find($id);
-      $empolyee->delete();
-      return redirect()->route('employee.show')->with('sucess','Data Deleted');
+        $empolyee = Employee::find($id);
+        $empolyee->delete();
+        return redirect()->route('employee.show')->with('sucess', 'Data Deleted');
     }
 
-    private function rules(){
-        return [
-            'name' => 'bail|required|max:50|String',
-            'password' => 'required',
-            'type' =>'required',
-            'phone_number' =>'required',
-            'address' =>'required',
-            'DoB' =>'required|Date',
-            'salary' =>'required|Numeric',
-            'work_days' =>'required|Integer',
-            
+    private function rules($id = null)
+    {
+        $rules = [
+            'name' => 'required|min:3|string',
+            'phone_number' => 'required|integer|min:7|',
+            'password' => 'required|min:5',
+            'phone_number' => 'required|integer|min:7',
+            'address' => 'required|min:3',
+            'DoB' => 'required|Date|after:01-01-1900',
+            'salary' => 'required|integer|between:500,5000',
         ];
-
+ 
+        return $rules;
     }
 
-    private function messages(){
+    private function messages()
+    {
         return [
             'name.required' => 'Name is required',
             'name.max' => 'Name must be leas than 50 charachcters',
-            'name.String' => 'All name must be String',
+            'name.string' => 'All name must be String',
             'password.required' => 'Password is required',
             'type.required' => 'Type is required',
             'phone_number.required' => 'Phone Number is required',
@@ -144,11 +140,10 @@ class EmployeeController extends Controller
             'DoB.date' => 'DoB must be date form',
             'salary.required' => 'salary is required',
             'salary.Numeric' => 'Salary must be Only Numeric',
-            'work_days.required' => 'work_days is required',
-            'work_days.Integer' => 'work_days must be Integer',
+        
 
-            
-            
+
+
         ];
     }
 }

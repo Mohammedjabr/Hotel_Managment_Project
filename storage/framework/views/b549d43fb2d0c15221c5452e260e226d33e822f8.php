@@ -16,12 +16,10 @@
                   <tr>
                     <th>Name</th>
                     <th>password</th>
-                    <th>type</th>
                     <th>Phone Number</th>
                     <th>Date Of Birth</th>
                     <th>Address</th>
                     <th>Salary</th>
-                    <th>Works Days</th>
                     <th>Edit</th>
                     <th>Delete</th>
                     
@@ -32,12 +30,11 @@
                   <tr>
                    <td><?php echo e($employee->name); ?></td>
                    <td><?php echo e($employee->password); ?></td>
-                   <td><?php echo e($employee->type); ?></td>
                    <td><?php echo e($employee->phone_number); ?></td>
                    <td><?php echo e($employee->DoB); ?></td>
                    <td><?php echo e($employee->address); ?></td>
                    <td><?php echo e($employee->salary); ?></td>
-                   <td><?php echo e($employee->work_days); ?></td>
+                   <!-- <td><?php echo e($employee->work_days); ?></td> -->
 
                    <td>
                    <a href="<?php echo e(action('EmployeeController@edit',$employee['id'])); ?>"><button class="btn btn-success">Edit</button></a> </td>

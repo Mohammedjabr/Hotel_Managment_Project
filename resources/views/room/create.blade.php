@@ -54,8 +54,8 @@
         <div class="form-group">
             <div class="fileinput fileinput-new" data-provides="fileinput">
                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px; line-height: 150px;">
-                <img src="{{(old('image'))}}">
-            </div>
+                    <img src="{{(old('image'))}}">
+                </div>
                 <div>
                     <span class="btn red btn-outline btn-file">
                         <span class="fileinput-new"> Select image </span>
@@ -73,7 +73,4 @@
         </div>
     </form>
 </div>
-</div>
-</div>
-
 @endsection
